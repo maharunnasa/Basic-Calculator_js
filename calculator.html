@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <h1>Basic Calculator</h1>
+    <table>
+        <tr>
+            <th>First Number</th>
+            <td>
+                <input type="number" id="firstNum">
+            </td>
+        </tr>
+        <tr>
+            <th>Second Number</th>
+            <td>
+                <input type="number" id="secondNum">
+            </td>
+        </tr>
+        <tr>
+            <th>Result</th>
+            <td>
+                <input type="number" id="result">
+            </td>
+        </tr>
+        <tr>
+            <th>Operator</th>
+            <!-- <td>
+                <input type="button" id="plusBtn" onclick="addition()" value="+">
+                <input type="button" id="minusBtn" onclick="subtraction()" value="-">
+                <input type="button" id="multiplicationBtn" onclick="multipli()" value="*">
+                <input type="button" id="divisionBtn" onclick="division()" value="/">
+                <input type="button" id="modulusBtn" onclick="modulus()" value="%">
+                <input type="button" id="resetBtn" onclick="" value="reset">
+            </td> -->
+            <td>
+                <input type="button" id="plusBtn" onclick="myCalculator('+')" value="+">
+                <input type="button" id="minusBtn" onclick="myCalculator('-')" value="-">
+                <input type="button" id="multiplicationBtn" onclick="myCalculator('*')" value="*">
+                <input type="button" id="divisionBtn" onclick="myCalculator('/')" value="/">
+                <input type="button" id="modulusBtn" onclick="myCalculator('%')" value="%">
+                <input type="button" id="resetBtn" value="reset">
+            </td>
+        </tr>
+    </table>
+    <script>
+        function addition(firstNum, secondNum) {
+            return firstNum + secondNum;
+        }
+        function subtraction(firstNum, secondNum) {
+            return firstNum - secondNum;
+        }
+        function multiplication(firstNum, secondNum) {
+            return firstNum * secondNum;
+        }
+        function division(firstNum, secondNum) {
+            return firstNum / secondNum;
+        }
+        function modulus(firstNum, secondNum) {
+            return firstNum % secondNum;
+        }
+
+        function myCalculator(operator) {
+            var firstNum = Number(document.getElementById('firstNum').value);
+            var secondNum = Number(document.getElementById('secondNum').value);
+            var result = 0;
+            switch (operator) {
+                case '+':
+                    result = addition(firstNum, secondNum);
+                    break;
+
+                case '-':
+                    result = subtraction(firstNum, secondNum);
+                    break;
+
+                case '*':
+                    result = multiplication(firstNum, secondNum);
+                    break;
+
+                case '/':
+                    result = division(firstNum, secondNum);
+                    break;
+                case '%':
+                    result = modulus(firstNum, secondNum);
+                    break;
+                default:
+                    result = 'invalid';
+
+            }
+            document.getElementById('result').value = result;
+        }
+        var resetBtn = document.getElementById('resetBtn');
+        resetBtn.onclick = function resetCalculator() {
+            document.getElementById('firstNum').value = '';
+            document.getElementById('secondNum').value = '';
+            document.getElementById('result').value = '';
+
+        }
+        // function addition() {
+        //     var resultDiv = document.getElementById('result');
+        //     var firstNum = Number ( document.getElementById('firstNum').value);
+        //     var secondNum = Number ( document.getElementById('secondNum').value);
+        //     var result = firstNum + secondNum;
+        //     resultDiv.value = result;
+        // }
+        // function subtraction() {
+        //     var resultDiv = document.getElementById('result');
+        //     var firstNum = Number ( document.getElementById('firstNum').value);
+        //     var secondNum = Number ( document.getElementById('secondNum').value);
+        //     var result = firstNum - secondNum;
+        //     resultDiv.value = result;
+        // }
+        // function multiplication() {
+        //     var resultDiv = document.getElementById('result');
+        //     var firstNum = Number ( document.getElementById('firstNum').value);
+        //     var secondNum = Number ( document.getElementById('secondNum').value);
+        //     var result = firstNum * secondNum;
+        //     resultDiv.value = result;
+        // }
+        // function division() {
+        //     var resultDiv = document.getElementById('result');
+        //     var firstNum = Number ( document.getElementById('firstNum').value);
+        //     var secondNum = Number ( document.getElementById('secondNum').value);
+        //     var result = firstNum / secondNum;
+        //     resultDiv.value = result;
+        // }
+        // function modulus() {
+        //     var resultDiv = document.getElementById('result');
+        //     var firstNum = Number ( document.getElementById('firstNum').value);
+        //     var secondNum = Number ( document.getElementById('secondNum').value);
+        //     var result = firstNum % secondNum;
+        //     resultDiv.value = result;
+        // }
+
+    </script>
+</body>
+
+</html>
